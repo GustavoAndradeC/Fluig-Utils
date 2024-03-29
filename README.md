@@ -21,3 +21,11 @@
 
 configurarCampo(selectedItem["BANCO"], "text_exemple", selectedItem);
 ```
+
+```javascript
+$('table.table[tablename="tb_exemplo"] tbody tr:visible').each(function(i, e) {
+    var CAMPO = $(e).find('input[name^="NOME DO CAMPO"]').val();
+    console.log(CAMPO);
+});
+
+```
