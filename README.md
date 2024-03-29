@@ -4,10 +4,10 @@
 
 
 ```javascript
-	function configurarCampo(valor, campoId, selectedItem) {
+    function configurarCampo(valor, campoId, selectedItem) {
     var campo = $("#" + campoId);
     
-    if(selectedItem.InputId == "ID DO CAMPO QUE QUERO PARA ENTRAR NO IF") {
+    	if(selectedItem.InputId == "ID DO CAMPO QUE QUERO PARA ENTRAR NO IF") {
 	        if (valor !== undefined && valor !== null && valor !== "") {
 		        campo.prop("readonly", true);
 		        campo.val(valor);
