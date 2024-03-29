@@ -1,7 +1,8 @@
 ## Lista de codigos
 
-[![](https://img.shields.io/badge/Funções-2F3134?style=for-the-badge&logo=hyperledger&logoColor=white)](https://github.com/Ileriayo/markdown-badges)
+[![](https://img.shields.io/badge/OBJ%20do%20campo%20zoom%20%20para%20input-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#obj-do-campo-zoom-para-input) [![](https://img.shields.io/badge/Percorre%20dados%20tabela%20PxF-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#percorre-dados-tabela-pxf)
 
+## Obj do campo zoom para input
 
 ```javascript
     function configurarCampo(valor, campoId, selectedItem) {
@@ -19,13 +20,14 @@
 
 }
 
-configurarCampo(selectedItem["BANCO"], "text_exemple", selectedItem);
+configurarCampo(selectedItem[" "], "text_exemple", selectedItem);
 ```
+##  Percorre dados tabela PxF
 
 ```javascript
-$('table.table[tablename="tb_exemplo"] tbody tr:visible').each(function(i, e) {
-    var CAMPO = $(e).find('input[name^="NOME DO CAMPO"]').val();
-    console.log(CAMPO);
-});
+	$('table.table[tablename="tb_exemplo"] tbody tr:visible').each(function(i, e) {
+		var CAMPO = $(e).find('input[name^="NOME DO CAMPO"]').val();
+		console.log(CAMPO);
+	});
 
 ```
