@@ -1,8 +1,8 @@
-## Lista de codigos
+### Lista de codigos
 
 [![](https://img.shields.io/badge/OBJ%20do%20campo%20zoom%20%20para%20input-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#obj-do-campo-zoom-para-input) [![](https://img.shields.io/badge/Percorre%20dados%20tabela%20PxF-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#percorre-dados-tabela-pxf) [![](https://img.shields.io/badge/Recupera%20email%20via%20dataset-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#recupera-email-via-dataset) [![](https://img.shields.io/badge/Recupera%20email%20via%20fluigsdk-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#recupera-email-via-fluigsdk)
 
-## Obj do campo zoom para input
+### Obj do campo zoom para input
 
 ```javascript
     function configurarCampo(valor, campoId, selectedItem) {
@@ -22,7 +22,7 @@
 
 configurarCampo(selectedItem[" "], "text_exemple", selectedItem);
 ```
-##  Percorre dados tabela PxF
+###  Percorre dados tabela PxF
 
 ```javascript
 	$('table.table[tablename="tb_exemplo"] tbody tr:visible').each(function(i, e) {
@@ -32,7 +32,7 @@ configurarCampo(selectedItem[" "], "text_exemple", selectedItem);
 
 ```
 
-##  Recupera email via dataset
+### Recupera email via dataset
 
 ```javascript
 	var login = fluigAPI.getUserService().getCurrent().getLogin();
@@ -42,8 +42,272 @@ configurarCampo(selectedItem[" "], "text_exemple", selectedItem);
 	var matricula = consulta.values[0][1];
 ```
 
-##  Recupera email via FluigSDK
+###  Recupera email via FluigSDK
 
 ```javascript
 	fluigAPI.getUserService().getCurrent().getEmail();
 ```
+
+### Para desabilitar campos usar setShowDisabledFields
+```js
+form.setShowDisabledFields(true);
+```
+
+### Para desabilitar o botão de excluir do form filho, usar setHideDeleteButton
+```js
+form.setHideDeleteButton(false);
+```
+
+### Para ocultar o os botões Imprimir e Imprimir em nova Janela, deve-se utilizar o método setHidePrintLink.
+```js
+form.setHidePrintLink(true);
+```
+
+### Para esconder campos usar o setVisible ou setVisibleById
+
+```js
+if(form.getFormMode() != "VIEW")  {
+    customHTML.append("<script>");
+    customHTML.append("function MostraEscondeBtn_zoom()");
+    customHTML.append("{");
+    customHTML.append("document.getElementById(\'zoomUsuario\').className = \'show\';");
+    customHTML.append("document.getElementById(\'zoomModulo\').className = \'show\';");
+    customHTML.append("}");
+    customHTML.append("</script>");
+}
+```
+
+### afterProcessing: Ultimo evento, recebe o form
+
+nesse evento os dados já foram salvos, pode ser usado para verificar asinformações
+
+```js
+function afterProcessing(form){
+}
+```
+
+### beforeProcessing: Primeiro evento a ser chamado, recebe o form
+
+### beforeMovementOptions: É chamado ao chamar o botão      movimentar, antes de mosstrar as opções, recebe o número da atividade atual
+
+
+```js
+<script>
+  var beforeMovementOptions = function(numState) {
+    console.log("_________________ beforeMovementOptions");
+    console.log("numState: " + numState);
+    console.log("valor campo: " + document.form.c7_total.value);
+    if (document.form.c7_total.value == '') {
+      throw ("Erro: nenhum valor selecionado!");
+    }
+    return true;
+  }
+</script>
+```
+
+### beforeSendValidade: É chamado antes de ser movimentado, após já ter selecionado a atividade destino, recebe numero da atividade, e o número da proxima
+
+```js
+<script>
+var beforeSendValidate = function(numState,nextState){
+    console.log("-beforeSendValidate-");
+    console.log("numState: " + numState);
+    console.log("nextState: " + nextState);
+    throw("Erro Xyz");
+}
+</script>
+```
+
+```js
+<script>
+var beforeSendValidate = function(numState,nextState){
+  console.log("-beforeSendValidate-");
+  console.log("numState: " + numState);
+  console.log("nextState: " + nextState);
+  var isOk = confirm("Deseja realmente enviar o processo ?");
+  return isOk;
+ }
+</script>
+```
+
+### getFormMode: Retorna o modo atual do form
+
+```js
+form.getFormMode()
+```
+
+* ADD: inclusão
+* MOD: edição
+* VIEW: visualização
+* NONE: qndo não há comunicação com o form, como na validação
+  
+### Mascarás
+
+```html
+<input name="cep" type="text" mask="00000-000">
+```
+
+``` O fluig mobile não suporta o atributo mask.```
+
+|Código |Descrição|
+|:-------:|---|
+|0| Somente Números|
+|9| Somente Números mais opcional|
+|\#| Somente números mais recursivo|
+|A| Números ou letras|
+|S| Somente letras entre A-Z e a-z|
+
+### Zoom
+
+```js
+<input
+    type="zoom"
+    id = "c7_total"
+    name="c7_total"
+    data-zoom="{
+        'displayKey':'colleagueName',
+        'datasetId':'colleague',
+        'maximumSelectionLength':'2',
+        'placeholder':'Escolha o usuário',
+        'fields':[
+            {
+               'field':'colleagueId',
+               'label':'ID'
+            },{
+              'field':'colleagueName',
+              'label':'Nome',
+              'standard':'true'
+            },{
+              'field':'login',
+              'label':'Login'
+            }
+        ]
+     }"
+/>
+```
+
+* type: o atributo type para este componente obrigatoriamente é 'zoom'
+* name: nome do campo
+* data-zoom: parâmetros do zoom em formato json onde:
+  * maximumSelectionLength: limite de registros selecionáveis, caso não seja informado, o valor padrão é 1.
+  * resultLimit: número máximo de resultados que serão listados na busca, o valor padrão é 300.
+  * placeholder: texto de placeholder, que irá aparecer no zoom. Pode ser utilizado para instrução.
+    * displayKey: coluna filtrável e de exibição após selecionado o registro
+    * filterValues: atributo do dataset e valor para serem filtrados. Devem ser colocados em pares, separados por vírgula (,) onde o primeiro valor é o nome do campo e o segundo refere-se ao valor do campo.
+  * datasetId ou cardDatasetId: opte por uma das opções:
+    * datasetId:  é o nome do dataset (Built-in, CardIndex ou Customized).
+    * cardDatasetId: é o numero de outro formulário para consulta.
+    * fields: Estrutura do filtro
+      * field: atributo do dataset que será utilizado.
+      * label: descrição da coluna.
+      * standard: a coluna que será utilizada como ordenação padrão e valor do registro selecionado.
+
+### getChildrenFromTable: Evento que retorna os campos de um pai filho, passando o nome da table
+
+### getChildrenIndexes: Retorna os índices de uma tabela filha, passando o nome da table
+
+```js
+function validateForm(form){
+  var indexes = form.getChildrenIndexes("tabledetailname");
+  var total = 0;
+  for (var i = 0; i < indexes.length; i++) {
+    var fieldValue = parseInt(form.getValue("valor___" + indexes[i]));
+    if (isNaN(fieldValue)){
+        fieldValue = 0;
+    }
+    total = total + fieldValue;
+    log.info(total);
+  }
+  log.info(total);
+  if (total < 100) {
+    throw "Valor Total da requisição não pode ser inferior a 100";
+  }
+}
+```
+
+### enableFields: É possivel usar o enableFields para os filhos, precisa o indice da linha
+
+```js
+function enableFields(form){
+  var indexes = form.getChildrenIndexes("ingredientes");
+  for (var i = 0; i < indexes.length; i++) {
+    form.setEnabled("quantidade___" + indexes[i], false);
+    form.setEnabled("unidade___" + indexes[i], false);
+    form.setEnabled("produto___" + indexes[i], false);
+  }
+}
+```
+
+## hAPI - API de WorkFlow
+
+```
+Em todos os eventos do processo é possível obter informações da API de Workflow. Cada evento possui acesso ao handle da API de workflow pela variável global hAPI. Os seguintes métodos estão disponíveis através da hAPI:
+```
+
+|método |Especificação|
+|:-------:|---|
+|getCardValue("nomeCampo")| Permite acessar o valor de um campo do formulário do processo, onde: nomeCampo = nome do campo do formulário.|
+
+* nomeCampo: nome do campo do formulário. 
+```
+
+```js
+var campoCheckbox = hAPI.getCardValue("campoCheckbox") == "on" ? true : false;
+```
+---
+|método|Especificação
+|---|---
+setCardValue("nomeCampo", "valor")|Permite definir o valor de um campo do formulário do processo, onde:nomeCampo: nome do campo do formulário; valor: valor a ser definido para o campo do formulário.
+
+* nomeCampo: nome do campo do formulário;
+* valor: valor a ser definido para o campo do formulário.
+---
+|método|Especificação
+|---|---
+setAutomaticDecision(numAtiv, listaColab, "obs")| **A propriedade automaticTasks esta depreciada não havendo mais suporte a partir da atualização 1.5.9 do fluig.** É recomendada a utilização da atividade de [Serviço](http://tdn.totvs.com/pages/releaseview.action?pageId=237397494) ou Gateway Exclusivo.
+---
+|método|Especificação
+|---|---
+getActiveStates()|Retorna uma lista das atividades ativas do processo.
+---
+|método|Especificação
+|---|---
+getActualThread(numEmpresa, numProcesso, numAtiv)|Retorna a thread da atividade que está ativa, lembrando que em caso de atividades paralelas, retorna 0, 1, 2 e assim sucessivamente.
+
+* numEmpresa: número da empresa;
+* numProcesso: número da solicitação;
+* numAtiv: número da atividade.
+> Exemplo de uso para esta função:
+
+```js
+function afterTaskCreate(colleagueId) {
+  
+    var nrProxAtividade = getValue("WKNextState");
+    if (nrProxAtividade == "5"){ //atividade entre paralelas
+  
+        var data = new Date();
+        var numEmpresa = getValue("WKCompany");
+      
+        //seta o dia, mês (Janeiro é 0) e ano
+        data.setDate(20);
+        data.setMonth(10);
+        data.setFullYear(2010);
+         
+        // Recupera o numero da solicitação
+        var numProcesso = getValue("WKNumProces");
+      
+        // Seta o prazo para as 14:00
+        hAPI.setDueDate(numProcesso, hAPI.getActualThread(numEmpresa, numProcesso, nrProxAtividade), colleagueId, data, 50400);
+    }
+}
+```
+---
+|método|Especificação
+|---|---
+setDueDate(numProcesso, numThread, "userId", dataConclusao, tempoSeg)|Permite alterar o prazo de conclusão para uma determinada atividade do processo
+
+* numProcesso: número da solicitação;
+* numThread: número da thread (normalmente 0, quando não se utiliza atividades paralelas);
+* userId: o usuário responsável pela tarefa;
+* dataConclusao: a nova data de conclusão;
+* tempoSeg: tempo que representa a nova hora de conclusão, calculado em segundos após a meia-noite.
