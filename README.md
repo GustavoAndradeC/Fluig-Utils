@@ -25,10 +25,10 @@ configurarCampo(selectedItem[" "], "text_exemple", selectedItem);
 ###  Percorre dados tabela PxF
 
 ```javascript
-	$('table.table[tablename="tb_exemplo"] tbody tr:visible').each(function(i, e) {
-		var CAMPO = $(e).find('input[name^="NOME DO CAMPO"]').val();
-		console.log(CAMPO);
-	});
+    $('table.table[tablename="tb_exemplo"] tbody tr:visible').each(function(i, e) {
+      var CAMPO = $(e).find('input[name^="NOME DO CAMPO"]').val();
+      console.log(CAMPO);
+    });
 
 ```
 
@@ -144,46 +144,46 @@ form.getFormMode()
 ### Mascarás
 
 ```html
-<input name="cep" type="text" mask="00000-000">
+    <input name="cep" type="text" mask="00000-000">
 ```
 
 ``` O fluig mobile não suporta o atributo mask.```
 
-|Código |Descrição|
-|:-------:|---|
-|0| Somente Números|
-|9| Somente Números mais opcional|
-|\#| Somente números mais recursivo|
-|A| Números ou letras|
-|S| Somente letras entre A-Z e a-z|
+| Código | Descrição                      |
+| :----: | ------------------------------ |
+|   0    | Somente Números                |
+|   9    | Somente Números mais opcional  |
+|   \#   | Somente números mais recursivo |
+|   A    | Números ou letras              |
+|   S    | Somente letras entre A-Z e a-z |
 
 ### Zoom
 
 ```js
-<input
-    type="zoom"
-    id = "c7_total"
-    name="c7_total"
-    data-zoom="{
-        'displayKey':'colleagueName',
-        'datasetId':'colleague',
-        'maximumSelectionLength':'2',
-        'placeholder':'Escolha o usuário',
-        'fields':[
-            {
-               'field':'colleagueId',
-               'label':'ID'
-            },{
-              'field':'colleagueName',
-              'label':'Nome',
-              'standard':'true'
-            },{
-              'field':'login',
-              'label':'Login'
-            }
-        ]
-     }"
-/>
+    <input
+        type="zoom"
+        id = "c7_total"
+        name="c7_total"
+        data-zoom="{
+            'displayKey':'colleagueName',
+            'datasetId':'colleague',
+            'maximumSelectionLength':'2',
+            'placeholder':'Escolha o usuário',
+            'fields':[
+                {
+                  'field':'colleagueId',
+                  'label':'ID'
+                },{
+                  'field':'colleagueName',
+                  'label':'Nome',
+                  'standard':'true'
+                },{
+                  'field':'login',
+                  'label':'Login'
+                }
+            ]
+        }"
+    />
 ```
 
 * type: o atributo type para este componente obrigatoriamente é 'zoom'
@@ -207,22 +207,22 @@ form.getFormMode()
 ### getChildrenIndexes: Retorna os índices de uma tabela filha, passando o nome da table
 
 ```js
-function validateForm(form){
-  var indexes = form.getChildrenIndexes("tabledetailname");
-  var total = 0;
-  for (var i = 0; i < indexes.length; i++) {
-    var fieldValue = parseInt(form.getValue("valor___" + indexes[i]));
-    if (isNaN(fieldValue)){
-        fieldValue = 0;
+    function validateForm(form){
+      var indexes = form.getChildrenIndexes("tabledetailname");
+      var total = 0;
+      for (var i = 0; i < indexes.length; i++) {
+        var fieldValue = parseInt(form.getValue("valor___" + indexes[i]));
+        if (isNaN(fieldValue)){
+            fieldValue = 0;
+        }
+        total = total + fieldValue;
+        log.info(total);
+      }
+      log.info(total);
+      if (total < 100) {
+        throw "Valor Total da requisição não pode ser inferior a 100";
+      }
     }
-    total = total + fieldValue;
-    log.info(total);
-  }
-  log.info(total);
-  if (total < 100) {
-    throw "Valor Total da requisição não pode ser inferior a 100";
-  }
-}
 ```
 
 ### enableFields: É possivel usar o enableFields para os filhos, precisa o indice da linha
@@ -240,44 +240,35 @@ function enableFields(form){
 
 ## hAPI - API de WorkFlow
 
-```
 Em todos os eventos do processo é possível obter informações da API de Workflow. Cada evento possui acesso ao handle da API de workflow pela variável global hAPI. Os seguintes métodos estão disponíveis através da hAPI:
-```
 
-|método |Especificação|
-|:-------:|---|
-|getCardValue("nomeCampo")| Permite acessar o valor de um campo do formulário do processo, onde: nomeCampo = nome do campo do formulário.|
+| Método    | Especificação |
+| :----: | :--------: |
+| getCardValue("nomeCampo") | Permite acessar o valor de um campo do formulário do processo, onde: nomeCampo = nome do campo do formulário. |
 
 * nomeCampo: nome do campo do formulário. 
-```
 
 ```js
 var campoCheckbox = hAPI.getCardValue("campoCheckbox") == "on" ? true : false;
 ```
+
 ---
-|método|Especificação
-|---|---
-setCardValue("nomeCampo", "valor")|Permite definir o valor de um campo do formulário do processo, onde:nomeCampo: nome do campo do formulário; valor: valor a ser definido para o campo do formulário.
+| Método | Especificação   |
+| :----: | :----: |
+| setCardValue("nomeCampo", "valor") | Permite definir o valor de um campo do formulário do processo, onde:nomeCampo: nome do campo do formulário; valor: valor a ser definido para o campo do formulário. |
 
 * nomeCampo: nome do campo do formulário;
 * valor: valor a ser definido para o campo do formulário.
----
-|método|Especificação
-|---|---
-setAutomaticDecision(numAtiv, listaColab, "obs")| **A propriedade automaticTasks esta depreciada não havendo mais suporte a partir da atualização 1.5.9 do fluig.** É recomendada a utilização da atividade de [Serviço](http://tdn.totvs.com/pages/releaseview.action?pageId=237397494) ou Gateway Exclusivo.
----
-|método|Especificação
-|---|---
-getActiveStates()|Retorna uma lista das atividades ativas do processo.
----
-|método|Especificação
-|---|---
-getActualThread(numEmpresa, numProcesso, numAtiv)|Retorna a thread da atividade que está ativa, lembrando que em caso de atividades paralelas, retorna 0, 1, 2 e assim sucessivamente.
+
+| Método | Especificação   |
+| :------: | :-----: |
+| setAutomaticDecision(numAtiv, listaColab, "obs") | **A propriedade automaticTasks esta depreciada não havendo mais suporte a partir da atualização 1.5.9 do fluig.** É recomendada a utilização da atividade de [Serviço](http://tdn.totvs.com/pages/releaseview.action?pageId=237397494) ou Gateway Exclusivo. |
+| getActiveStates() | Retorna uma lista das atividades ativas do processo. |
+| getActualThread(numEmpresa, numProcesso, numAtiv) | Retorna a thread da atividade que está ativa, lembrando que em caso de atividades paralelas, retorna 0, 1, 2 e assim sucessivamente. |
 
 * numEmpresa: número da empresa;
 * numProcesso: número da solicitação;
 * numAtiv: número da atividade.
-> Exemplo de uso para esta função:
 
 ```js
 function afterTaskCreate(colleagueId) {
@@ -302,9 +293,9 @@ function afterTaskCreate(colleagueId) {
 }
 ```
 ---
-|método|Especificação
-|---|---
-setDueDate(numProcesso, numThread, "userId", dataConclusao, tempoSeg)|Permite alterar o prazo de conclusão para uma determinada atividade do processo
+| Método| Especificação     |
+| :----: | :-------: |
+| setDueDate(numProcesso, numThread, "userId", dataConclusao, tempoSeg) | Permite alterar o prazo de conclusão para uma determinada atividade do processo |
 
 * numProcesso: número da solicitação;
 * numThread: número da thread (normalmente 0, quando não se utiliza atividades paralelas);
