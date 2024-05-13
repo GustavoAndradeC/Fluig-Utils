@@ -1,6 +1,6 @@
 ### Lista de codigos
 
-[![](https://img.shields.io/badge/OBJ%20do%20campo%20zoom%20%20para%20input-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#obj-do-campo-zoom-para-input) [![](https://img.shields.io/badge/Percorre%20dados%20tabela%20PxF-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#percorre-dados-tabela-pxf) [![](https://img.shields.io/badge/Recupera%20email%20via%20dataset-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#recupera-email-via-dataset) [![](https://img.shields.io/badge/Recupera%20email%20via%20fluigsdk-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#recupera-email-via-fluigsdk) [![](https://img.shields.io/badge/Desabilitar%20campos%20usar%20setShowDisabledFields-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#para-desabilitar-campos-usar-setshowdisabledfields) [![](https://img.shields.io/badge/desabilitar%20o%20bot%C3%A3o%20de%20excluir%20do%20form%20filho-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#para-desabilitar-o-botão-de-excluir-do-form-filho-usar-sethidedeletebutton) [![](https://img.shields.io/badge/ocultar%20os%20bot%C3%B5es%20Imprimir-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#para-ocultar-o-os-botões-imprimir-e-imprimir-em-nova-janela-deve-se-utilizar-o-método-sethideprintlink) [![](https://img.shields.io/badge/esconder%20campos-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#para-esconder-campos-usar-o-setvisible-ou-setvisiblebyid) [![](https://img.shields.io/badge/Ultimo%20evento,%20recebe%20o%20form-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#afterprocessing-ultimo-evento-recebe-o-form) [![](https://img.shields.io/badge/Primeiro%20evento%20a%20ser%20chamado,%20recebe%20o%20form-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#beforeprocessing-primeiro-evento-a-ser-chamado-recebe-o-form) [![](https://img.shields.io/badge/ao%20chamar%20o%20bot%C3%A3o%20%20%20%20%20%20movimentar-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#beforemovementoptions-é-chamado-ao-chamar-o-botão-movimentar-antes-de-mosstrar-as-opções-recebe-o-número-da-atividade-atual) [![](https://img.shields.io/badge/%C3%89%20chamado%20antes%20de%20ser%20movimentado-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#beforesendvalidade-é-chamado-antes-de-ser-movimentado-após-já-ter-selecionado-a-atividade-destino-recebe-numero-da-atividade-e-o-número-da-proxima) [![](https://img.shields.io/badge/Retorna%20o%20modo%20atual%20do%20form-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#getformmode-retorna-o-modo-atual-do-form) [![](https://img.shields.io/badge/Mascar%C3%A1s-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#mascarás) [![](https://img.shields.io/badge/Zoom-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#zoom) [![](https://img.shields.io/badge/Evento%20que%20retorna%20os%20campos%20de%20um%20pai%20filho-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#getchildrenfromtable-evento-que-retorna-os-campos-de-um-pai-filho-passando-o-nome-da-table) [![](https://img.shields.io/badge/%C3%ADndices%20de%20uma%20tabela%20filha-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#getchildrenindexes-retorna-os-índices-de-uma-tabela-filha-passando-o-nome-da-table) [![](https://img.shields.io/badge/usar%20o%20enableFields%20para%20os%20filhos-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#enablefields-é-possivel-usar-o-enablefields-para-os-filhos-precisa-o-indice-da-linha) [![](https://img.shields.io/badge/hAPI%20API%20de%20WorkFlow-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#hapi---api-de-workflow)
+[![](https://img.shields.io/badge/OBJ%20do%20campo%20zoom%20%20para%20input-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#obj-do-campo-zoom-para-input) [![](https://img.shields.io/badge/Percorre%20dados%20tabela%20PxF-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#percorre-dados-tabela-pxf) [![](https://img.shields.io/badge/Recupera%20email%20via%20dataset-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#recupera-email-via-dataset) [![](https://img.shields.io/badge/Recupera%20email%20via%20fluigsdk-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#recupera-email-via-fluigsdk) [![](https://img.shields.io/badge/Desabilitar%20campos%20usar%20setShowDisabledFields-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#para-desabilitar-campos-usar-setshowdisabledfields) [![](https://img.shields.io/badge/desabilitar%20o%20bot%C3%A3o%20de%20excluir%20do%20form%20filho-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#para-desabilitar-o-botão-de-excluir-do-form-filho-usar-sethidedeletebutton) [![](https://img.shields.io/badge/ocultar%20os%20bot%C3%B5es%20Imprimir-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#para-ocultar-o-os-botões-imprimir-e-imprimir-em-nova-janela-deve-se-utilizar-o-método-sethideprintlink) [![](https://img.shields.io/badge/esconder%20campos-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#para-esconder-campos-usar-o-setvisible-ou-setvisiblebyid) [![](https://img.shields.io/badge/Ultimo%20evento,%20recebe%20o%20form-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#afterprocessing-ultimo-evento-recebe-o-form) [![](https://img.shields.io/badge/Primeiro%20evento%20a%20ser%20chamado,%20recebe%20o%20form-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#beforeprocessing-primeiro-evento-a-ser-chamado-recebe-o-form) [![](https://img.shields.io/badge/ao%20chamar%20o%20bot%C3%A3o%20%20%20%20%20%20movimentar-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#beforemovementoptions-é-chamado-ao-chamar-o-botão-movimentar-antes-de-mosstrar-as-opções-recebe-o-número-da-atividade-atual) [![](https://img.shields.io/badge/%C3%89%20chamado%20antes%20de%20ser%20movimentado-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#beforesendvalidade-é-chamado-antes-de-ser-movimentado-após-já-ter-selecionado-a-atividade-destino-recebe-numero-da-atividade-e-o-número-da-proxima) [![](https://img.shields.io/badge/Retorna%20o%20modo%20atual%20do%20form-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#getformmode-retorna-o-modo-atual-do-form) [![](https://img.shields.io/badge/Mascar%C3%A1s-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#mascarás) [![](https://img.shields.io/badge/Zoom-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#zoom) [![](https://img.shields.io/badge/Evento%20que%20retorna%20os%20campos%20de%20um%20pai%20filho-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#getchildrenfromtable-evento-que-retorna-os-campos-de-um-pai-filho-passando-o-nome-da-table) [![](https://img.shields.io/badge/%C3%ADndices%20de%20uma%20tabela%20filha-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#getchildrenindexes-retorna-os-índices-de-uma-tabela-filha-passando-o-nome-da-table) [![](https://img.shields.io/badge/usar%20o%20enableFields%20para%20os%20filhos-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#enablefields-é-possivel-usar-o-enablefields-para-os-filhos-precisa-o-indice-da-linha) [![](https://img.shields.io/badge/hAPI%20API%20de%20WorkFlow-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#hapi---api-de-workflow) [![](https://img.shields.io/badge/Esconde%20bot%C3%B5es%20do%20anexos-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#esconde-botões-do-anexos) [![](https://img.shields.io/badge/Esconde%20a%20caixa%20de%20anexos-5B618A?style=for-the-badge&logo=seach&logoColor=white )](#esconde-a-caixa-de-anexos) [![](https://img.shields.io/badge/Remover%20Duplicatas-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#remover-duplicatas) [![](https://img.shields.io/badge/Toast%20com%20tempo%20para%20sumir-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#toast-com-tempo-para-sumir) [![](https://img.shields.io/badge/Verifica%20se%20existem%20duplas%20iguais-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#verifica-se-existem-duplas-iguais) [![](https://img.shields.io/badge/Consultado%20o%20dataset%20da%20solicita%C3%A7%C3%A3o%20atual-5B618A?style=for-the-badge&logo=seach&logoColor=white)](#consultado-o-dataset-da-solicitação-atual)
 
 [![]()]()
 
@@ -304,3 +304,94 @@ function afterTaskCreate(colleagueId) {
 * userId: o usuário responsável pela tarefa;
 * dataConclusao: a nova data de conclusão;
 * tempoSeg: tempo que representa a nova hora de conclusão, calculado em segundos após a meia-noite.
+
+### Esconde botões do anexos
+  
+  ```js
+	window.parent.$(".loadFilesSection").show();
+	$(window.parent.document.querySelectorAll("[data-attachments-remove-attach]")[0]).show();
+  ```
+
+### Esconde a caixa de anexos 
+  ```js
+  window.parent.$("#processTabs").find("li").last().hide();
+  ```
+
+### Remover Duplicatas
+  ```js
+  function removerDuplicatasEmails(atual) {
+      var palavras = atual.split(";"); // split do array
+
+      var palavrasUnicas = [];
+      var palavrasVistas = {};
+
+      for (var i = 0; i < palavras.length; i++) {
+        var palavraAtual = palavras[i].trim();
+        if (!palavrasVistas[palavraAtual]) {
+          palavrasUnicas.push(palavraAtual);
+          palavrasVistas[palavraAtual] = true;
+        }
+      }
+
+      var novaString = palavrasUnicas.join(";"); // Quando unificar 
+
+      if (novaString.startsWith(";")) {  // Se começar com ; remove
+        novaString = novaString.slice(1);
+      }
+
+      $("#hidden_email").val(novaString); 
+    }
+  ```
+
+###  Toast com tempo para sumir
+  ```js
+	setTimeout(function () {
+		FLUIGC.toast({
+			message: "",
+			title: "",
+			type: "warning",
+			timeout: "slow",
+		});
+	}, 500);
+  ```
+
+### Verifica se existem duplas iguais
+  ```js
+  if (selectedItem.inputId.startsWith('zConta_contabilCC') || selectedItem.inputId.startsWith('ztxt_centro_custo_pxf')) {
+      const todasDuplas = [];
+
+      $('table[tablename="tb_itens_ccr"] tbody tr:visible').each(function (i, e) {
+        const centroCusto = $(e).find("[name^='ztxt_centro_custo_pxf']").val();
+        const contaContabil = $(e).find("[name^='zConta_contabilCC']").val();
+
+        const novaDupla = centroCusto + " - " + contaContabil;
+
+        if (todasDuplas.includes(novaDupla)) {
+
+          var matches = selectedItem.inputId.match(/\d+$/);
+
+          $("#ztxt_centro_custo_pxf___" + matches).text("")
+          $("#zConta_contabilCC___" + matches).text("")
+
+          setTimeout(function () {
+            FLUIGC.toast({
+              message: " Linha com " + centroCusto + " e " + contaContabil + " existente!",
+              title:
+                "Atenção ",
+              type: "warning",
+              timeout: "slow",
+            });
+          }, 500);
+        } else {
+          todasDuplas.push(novaDupla);
+        }
+      });
+    }
+  ```
+
+### Consultado o dataset da solicitação atual
+
+  ```js
+	var ctsPed = DatasetFactory.createConstraint('Coluna', "Nº SOLIC", "Nº SOLIC", ConstraintType.MUST);
+	var dtsPed = DatasetFactory.getDataset('DTS', null, new Array(ctsPed), null).values;
+  ```
