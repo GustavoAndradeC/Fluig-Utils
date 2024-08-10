@@ -402,3 +402,13 @@ function afterTaskCreate(colleagueId) {
 	window.parent.$("#workflowActions").hide();
 	window.parent.$(".btn-group").hide();
   ```
+
+### Substituir todas as vírgulas por pontos e remover todos os pontos.
+  ```js
+	.replace(/(\.)|,/g, (match) => match === ',' ? '.' : '') 
+  ```
+
+### Remover todos os pontos e vírgulas
+  ```js
+	.replace(/[.,]/g, '') 
+  ```
